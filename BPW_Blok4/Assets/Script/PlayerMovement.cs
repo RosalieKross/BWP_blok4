@@ -33,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         move = Vector3.zero;
         move.x = Input.GetAxisRaw("Horizontal");
         move.y = Input.GetAxisRaw("Vertical");
@@ -77,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 
     void MoveCharacter()
     {
+        move.Normalize();
         PlayerRB.MovePosition(
             transform.position + move * speed * Time.deltaTime);
     }

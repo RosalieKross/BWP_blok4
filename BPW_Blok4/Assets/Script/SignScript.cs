@@ -12,6 +12,7 @@ public class SignScript : MonoBehaviour
     public bool playerInRange;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
