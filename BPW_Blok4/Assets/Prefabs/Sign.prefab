@@ -146,6 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10d96da46e32d423a9c8dd83f0cd00ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DM: {fileID: 0}
   playerInRange: 0
-  dialogueLines: []
+  DM: {fileID: 0}
+  dialogueLines:
+  - There's no place like home!
+  - Home sweet home
+  - <3
+  contextSignal: {fileID: 11400000, guid: d651e086a2e244a66982d5679e92d132, type: 2}

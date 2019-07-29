@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerHit : MonoBehaviour
 {
 
-    GameObject Apple;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +22,6 @@ public class PlayerHit : MonoBehaviour
         if (collision.CompareTag("breakable"))
         {
             collision.GetComponent<Destroy>().Breaking();
-            Destroy(Apple);
         }
     }
 

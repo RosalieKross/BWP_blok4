@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-
-public class DialogHolder : MonoBehaviour
+public class DialogHolder : Interactable
 {
 
+
+    
     public DialogManager DM;
-    public bool playerInRange;
     public string[] dialogueLines;
+    
+
 
 
     // Start is called before the first frame update
@@ -21,42 +22,30 @@ public class DialogHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
+        if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
         {
-            playerInRange = true;
-            Debug.Log("player in zone");
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (!DM.BoxActive)
             {
-                if (!DM.BoxActive)
-                {
-                    DM.dialogLines = dialogueLines;
-                    DM.currentLine = 0;
-                    DM.ShowDialog();
-                }
+                DM.dialogLines = dialogueLines;
+                DM.currentLine = 0;
+                DM.ShowDialog();
             }
         }
-
     }
+
+    
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            contextSignal.Raise();
             playerInRange = false;
             Debug.Log("player left");
             DM.dialogBox.SetActive(false);
             DM.BoxActive = false;
             DM.currentLine = 0;
         }
+
     }
-
-
-
 }
-
-

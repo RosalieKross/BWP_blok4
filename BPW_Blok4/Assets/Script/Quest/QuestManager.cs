@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class QuestManager : MonoBehaviour
 {
 
     public QuestObject[] quests;
     public bool[] completedQuests;
+    public string[] questText;
+
+    public string isItemCollected;
 
 
-    public SignScript dialogManager; //dialog bubble voor quest tekst
+    public DialogManager DM; //dialog bubble voor quest tekst
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +28,12 @@ public class QuestManager : MonoBehaviour
         
     }
 
-    public void QuestText(string questText)
+    public void ShowQuestText()
     {
+        // DM.dialogLines = new string[1];
+        DM.dialogLines = questText;
 
+        DM.currentLine = 0;
+        DM.ShowDialog();
     }
 }

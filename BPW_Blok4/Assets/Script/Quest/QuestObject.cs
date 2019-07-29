@@ -8,9 +8,12 @@ public class QuestObject : MonoBehaviour
     public int questNumber;
     public QuestManager questMan;
 
-    public string StartText;
-    public string EndText;
+    public string[] StartText;
+    public string[] EndText;
 
+
+    public bool isItemQuest;
+    public string targetItem;
         // Start is called before the first frame update
     void Start()
     {
@@ -20,17 +23,27 @@ public class QuestObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isItemQuest)
+        {
+            if(questMan.isItemCollected == targetItem)
+            {
+                questMan.isItemCollected = null;
+
+                EndQuest();
+            }
+        }  
     }
 
     public void StartQuest()
     {
-        questMan.QuestText(StartText);
+        questMan.questText = StartText;
+        questMan.ShowQuestText();
     }
 
     public void EndQuest()
     {
-        questMan.QuestText(EndText);
+        questMan.questText = EndText;
+        questMan.ShowQuestText();
         questMan.completedQuests[questNumber] = true;
         gameObject.SetActive(false);
     }
