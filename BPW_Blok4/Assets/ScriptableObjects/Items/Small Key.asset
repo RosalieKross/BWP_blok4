@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f63e78042319453da248b5db807e67f, type: 3}
   m_Name: Small Key
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300260, guid: 515804d683aac49ae9660d0d100c9c05, type: 3}
-  itemDescription: You've found a key! Where is the door?!
+  itemSprite: {fileID: 21300000, guid: 7d36f9cea681e40d7b20813a3c266a81, type: 3}
+  itemDescription:
+  - You've found a key! Is there a door nearby?
+  - You've found a key! Is there a door nearby?
   isKey: 1

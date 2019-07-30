@@ -6,7 +6,8 @@ public enum PlayerState // als een bool met meer functies
 {
     walk,
     attack,
-    interact
+    interact,
+    idle
 }
 
 
@@ -18,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D PlayerRB;
     private Vector3 move;
     private Animator animator;
+    public Inventory playerInventory;
+    public SpriteRenderer receivedItemSprite;
 
 
     void Start()
@@ -33,6 +36,12 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //is the player in an interacrion
+        if(currentState == PlayerState.interact)
+        {
+            return;
+        }
+
 
         move = Vector3.zero;
         move.x = Input.GetAxisRaw("Horizontal");
@@ -55,9 +64,34 @@ public class PlayerMovement : MonoBehaviour
         yield return null;
         animator.SetBool("attacking", false);
         yield return new WaitForSeconds(.2f);
-        currentState = PlayerState.walk;
+        if(currentState != PlayerState.interact)
+        {
+            currentState = PlayerState.walk;
+        }
+  
     }
 
+
+    public void RaiseItem()
+    {
+        if (playerInventory.currentItem != null)
+        {
+            if (currentState != PlayerState.interact)
+            {
+                animator.SetBool("receivedItem", true);
+                currentState = PlayerState.interact;
+                receivedItemSprite.sprite = playerInventory.currentItem.itemSprite;
+            }
+            else // 
+            {
+                animator.SetBool("receivedItem", false);
+                currentState = PlayerState.idle;
+                receivedItemSprite.sprite = null;
+                playerInventory.currentItem = null;
+            }
+        }
+
+    }
 
     void UpdateAnimationAndMove()
     {
