@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
+    public VectorValue startingPosition;
 
 
     void Start()
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         PlayerRB = GetComponent<Rigidbody2D>();
         animator.SetFloat("moveX", 0);
         animator.SetFloat("moveY", -1);
+        transform.position = startingPosition.initialValue;
 
     }
 
@@ -85,9 +87,10 @@ public class PlayerMovement : MonoBehaviour
             else // 
             {
                 animator.SetBool("receivedItem", false);
-                currentState = PlayerState.idle;
+                currentState = PlayerState.walk;
                 receivedItemSprite.sprite = null;
                 playerInventory.currentItem = null;
+
             }
         }
 

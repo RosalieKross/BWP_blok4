@@ -8,12 +8,12 @@ public class TreasureChest : Interactable
     public Item contents;
     public bool isOpen;
     public Signal RaiseItem;
-    //public GameObject dialogBox;
-    public DialogManager DM;
+    public GameObject boxText;
+    //public DialogManager DM;
     public Inventory playerInventory;
     private Animator anim;
-
-    //public Text dialogText;
+    public Signal powerupSignal;
+    public Text dialogLine;
 
 
 
@@ -42,11 +42,11 @@ public class TreasureChest : Interactable
 
     public void OpenChest()
     {
-        DM.dialogBox.SetActive(true); 
-        DM.dialogLines = contents.itemDescription;
-        DM.currentLine = 0;
-        DM.ShowDialog();
+        boxText.SetActive(true);
+        dialogLine.text = contents.itemDescription;
 
+        //DM.ShowDialog();
+        
         playerInventory.AddItem(contents);
 
         playerInventory.currentItem = contents;
@@ -54,8 +54,8 @@ public class TreasureChest : Interactable
         RaiseItem.Raise();
 
         contextSignal.Raise();
-
         isOpen = true;
+        anim.SetBool("opened", true);
     }
 
 
@@ -63,12 +63,11 @@ public class TreasureChest : Interactable
     {
         
             //set dialogBox uit 
-            DM.dialogBox.SetActive(false);
-            
-
+            boxText.SetActive(false);
             RaiseItem.Raise();
-            
-        
+            powerupSignal.Raise();
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

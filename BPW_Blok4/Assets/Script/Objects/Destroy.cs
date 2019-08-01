@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroy : MonoBehaviour
+public class Destroy : Powerup
 {
     private Animator breakanim;
+    //public Inventory playerInventory;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,8 @@ public class Destroy : MonoBehaviour
     public void Breaking()
     {
         breakanim.SetBool("break", true);
+        //playerInventory.coins += 1;
+        //powerupSignal.Raise();
         Destroy(gameObject);
     }
 }

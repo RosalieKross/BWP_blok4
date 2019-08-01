@@ -10,6 +10,9 @@ public class Inventory : ScriptableObject
     public Item currentItem;
     public List<Item> items = new List<Item>();
     public int numberOfKeys;
+    public int numberOfMasterKey;
+    public int coins;
+    //public int numberOfCoins;
 
     public void AddItem(Item itemToAdd)
     {
@@ -17,6 +20,14 @@ public class Inventory : ScriptableObject
         if (itemToAdd.isKey)
         {
             numberOfKeys++;
+        }
+        if (itemToAdd.isCoin)
+        {
+            coins++;
+        }
+        if (itemToAdd.isMasterKey)
+        {
+            numberOfMasterKey++;
         }
         else
         {

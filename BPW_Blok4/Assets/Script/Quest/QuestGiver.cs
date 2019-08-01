@@ -14,7 +14,9 @@ public class QuestGiver : MonoBehaviour
     public DialogManager DM;
 
     public Signal quest;
+
     
+
 
 
     // Start is called before the first frame update
@@ -42,7 +44,7 @@ public class QuestGiver : MonoBehaviour
 
                 if (endQuest && QM.quests[questNumber].gameObject.activeSelf)
                     {
-                    QM.quests[questNumber].EndQuest();
+                        QM.quests[questNumber].EndQuest();
                         Debug.Log("Quest Ended");
                     }
 

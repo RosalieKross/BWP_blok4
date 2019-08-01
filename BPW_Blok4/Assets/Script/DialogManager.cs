@@ -35,7 +35,7 @@ public class DialogManager : MonoBehaviour
         {
            dialogBox.SetActive(false);
            BoxActive = false;
-           currentLine = 0;
+            currentLine = 0;
         }
 
         dialogText.text = dialogLines[currentLine];

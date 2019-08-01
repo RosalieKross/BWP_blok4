@@ -30,7 +30,7 @@ public class QuestManager : MonoBehaviour
 
     public void ShowQuestText()
     {
-        // DM.dialogLines = new string[1];
+        DM.dialogLines = new string[1];
         DM.dialogLines = questText;
 
         DM.currentLine = 0;

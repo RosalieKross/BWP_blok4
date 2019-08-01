@@ -27,7 +27,7 @@ public class DialogHolder : Interactable
             if (!DM.BoxActive)
             {
                 DM.dialogLines = dialogueLines;
-                DM.currentLine = 0;
+                //DM.currentLine = 0;
                 DM.ShowDialog();
             }
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class QuestObject : MonoBehaviour
+public class QuestObject : Powerup
 {
 
     public int questNumber;
@@ -14,10 +14,11 @@ public class QuestObject : MonoBehaviour
 
     public bool isItemQuest;
     public string targetItem;
-        // Start is called before the first frame update
+    public Inventory playerInventory;
+    // Start is called before the first frame update
     void Start()
     {
-        
+        powerupSignal.Raise();
     }
 
     // Update is called once per frame
@@ -42,6 +43,8 @@ public class QuestObject : MonoBehaviour
 
     public void EndQuest()
     {
+        playerInventory.coins += 1;
+        powerupSignal.Raise();
         questMan.questText = EndText;
         questMan.ShowQuestText();
         questMan.completedQuests[questNumber] = true;

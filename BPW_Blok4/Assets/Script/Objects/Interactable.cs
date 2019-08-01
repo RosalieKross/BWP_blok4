@@ -6,7 +6,7 @@ public class Interactable : MonoBehaviour
 {
     public bool playerInRange;
     public Signal contextSignal;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -38,9 +38,7 @@ public class Interactable : MonoBehaviour
             contextSignal.Raise();
             playerInRange = false;
             Debug.Log("player left");
-            //DM.dialogBox.SetActive(false);
-            //DM.BoxActive = false;
-            //DM.currentLine = 0;
+            
         }
 
     }
