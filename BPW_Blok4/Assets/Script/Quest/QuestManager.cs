@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-
+    
     public QuestObject[] quests;
     public bool[] completedQuests;
     public string[] questText;
@@ -30,9 +30,8 @@ public class QuestManager : MonoBehaviour
 
     public void ShowQuestText()
     {
-        DM.dialogLines = new string[1];
+        DM.dialogLines = new string[0];
         DM.dialogLines = questText;
-
         DM.currentLine = 0;
         DM.ShowDialog();
     }

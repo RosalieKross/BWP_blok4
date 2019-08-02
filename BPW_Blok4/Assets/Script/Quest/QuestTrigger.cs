@@ -52,16 +52,6 @@ public class QuestTrigger : MonoBehaviour
         
     }
 
-    //private void OnTriggerExit2D(Collider2D other)  // Voor een quest is het toch niet logisch om de text te kunnen onderbreken door uit de triggerzone te stappen
-   // {
-     //   if (other.CompareTag("Player"))
-      //  {
-    //        playerInRange = false;
-      //      Debug.Log("player left");
-      //      DM.dialogBox.SetActive(false);
-      //      DM.BoxActive = false;
-      //      
-      //  }
-   // }
+    
 
 }

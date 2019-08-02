@@ -11,6 +11,7 @@ public class Inventory : ScriptableObject
     public List<Item> items = new List<Item>();
     public int numberOfKeys;
     public int numberOfMasterKey;
+    public int numberOfApples;
     public int coins;
     //public int numberOfCoins;
 
@@ -29,6 +30,10 @@ public class Inventory : ScriptableObject
         {
             numberOfMasterKey++;
         }
+        if (itemToAdd.isApple)
+        {
+            numberOfApples++;
+        }
         else
         {
             if (!items.Contains(itemToAdd))
@@ -39,6 +44,6 @@ public class Inventory : ScriptableObject
 
     }
 
-
+    
 
 }

@@ -11,6 +11,6 @@ public class Item : ScriptableObject
 	public bool isKey;
     public bool isCoin;
     public bool isMasterKey;
-
+    public bool isApple;
 
 }

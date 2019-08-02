@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f63e78042319453da248b5db807e67f, type: 3}
-  m_Name: Apple
+  m_Script: {fileID: 11500000, guid: 52f1f5ae59c1e4213911ce15f4cc1d40, type: 3}
+  m_Name: CameraMax
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300108, guid: 274ff233132f445eaababa660b0aeb07, type: 3}
-  itemDescription: Dit is een appel
-  isKey: 0
-  isCoin: 0
-  isMasterKey: 0
-  isApple: 1
+  initialValue: {x: 18.62, y: -1.49}
+  defaultValue: {x: 5.38, y: 2.96}

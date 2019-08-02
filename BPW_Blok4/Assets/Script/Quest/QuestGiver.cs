@@ -12,6 +12,8 @@ public class QuestGiver : MonoBehaviour
     public bool endQuest;
     public bool playerInRange;
     public DialogManager DM;
+    public Vector3 playerChange;
+
 
     public Signal quest;
 
@@ -28,6 +30,22 @@ public class QuestGiver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+            StartTheQuest();
+
+                if (endQuest && QM.quests[questNumber].gameObject.activeSelf)
+                    {
+                        QM.quests[questNumber].EndQuest();
+                        Debug.Log("Quest Ended");
+                    }
+      
+    }
+
+
+
+    public void StartTheQuest()
+    {
+
         if (Input.GetKeyDown(KeyCode.Space) && playerInRange)
         {
             if (!QM.completedQuests[questNumber])
@@ -36,21 +54,16 @@ public class QuestGiver : MonoBehaviour
 
                 if (startQuest && !QM.quests[questNumber].gameObject.activeSelf)
                 {
-
                     QM.quests[questNumber].gameObject.SetActive(true);
                     QM.quests[questNumber].StartQuest();
+                    transform.position += playerChange;
 
-                    }
+                }
+            }
 
-                if (endQuest && QM.quests[questNumber].gameObject.activeSelf)
-                    {
-                        QM.quests[questNumber].EndQuest();
-                        Debug.Log("Quest Ended");
-                    }
-
-            }    
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -58,7 +71,7 @@ public class QuestGiver : MonoBehaviour
         {
             playerInRange = true;
             quest.Raise();
-                Debug.Log("playern QuestZone");
+            Debug.Log("playern QuestZone");
         }
 
     }

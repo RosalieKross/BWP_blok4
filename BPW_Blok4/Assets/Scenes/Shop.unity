@@ -2711,8 +2711,12 @@ MonoBehaviour:
   keyPrice: {fileID: 44262875}
   buyButton: {fileID: 26841382}
   sceneToLoad: 
-  playerPosition: {x: 7.51, y: -0.8}
+  playerPosition: {x: -19.45, y: -0.2}
   playerStorage: {fileID: 11400000, guid: a1d1378b6902a40c7b37affcce144403, type: 2}
+  cameraNewMax: {x: -29, y: -1.94}
+  cameraNewMin: {x: -18, y: 2.96}
+  cameraMin: {fileID: 11400000, guid: 7c00a7af018da48eab0d1b36640e069a, type: 2}
+  cameraMax: {fileID: 11400000, guid: ef938f45d408b4f47bc9a428ade32110, type: 2}
 --- !u!4 &1585080902
 Transform:
   m_ObjectHideFlags: 0

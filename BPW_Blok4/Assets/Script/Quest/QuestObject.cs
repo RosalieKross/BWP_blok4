@@ -2,18 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum QuestType
+{
+    FetchQuest,
+    KillQuest,
+    TalkQuest
+
+}
+
 public class QuestObject : Powerup
 {
-
     public int questNumber;
     public QuestManager questMan;
+    public QuestGiver QG;
+
+    public QuestType thisQuestType;
 
     public string[] StartText;
     public string[] EndText;
+    
+    //public bool playerInRange;
 
-
-    public bool isItemQuest;
-    public string targetItem;
     public Inventory playerInventory;
     // Start is called before the first frame update
     void Start()
@@ -24,21 +33,28 @@ public class QuestObject : Powerup
     // Update is called once per frame
     void Update()
     {
-        if (isItemQuest)
-        {
-            if(questMan.isItemCollected == targetItem)
-            {
-                questMan.isItemCollected = null;
 
-                EndQuest();
+    
+        if (Input.GetKeyDown(KeyCode.Space) && QG.playerInRange) //fetch quest.. Bring apple to villager
+        {
+            if (thisQuestType == QuestType.FetchQuest)
+            {
+                if (playerInventory.numberOfApples ==3)
+                {
+                    playerInventory.numberOfApples -=3;
+                    EndQuest();
+                }
+
             }
-        }  
+        }
     }
+
 
     public void StartQuest()
     {
         questMan.questText = StartText;
         questMan.ShowQuestText();
+
     }
 
     public void EndQuest()
@@ -49,5 +65,8 @@ public class QuestObject : Powerup
         questMan.ShowQuestText();
         questMan.completedQuests[questNumber] = true;
         gameObject.SetActive(false);
+        
     }
 }
+
+

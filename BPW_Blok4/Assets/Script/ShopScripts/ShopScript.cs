@@ -22,6 +22,13 @@ public class ShopScript : MonoBehaviour
     public Vector2 playerPosition;
     public VectorValue playerStorage;
 
+    [Header("SceneTransition Variables")]
+    public Vector2 cameraNewMax;
+    public Vector2 cameraNewMin;
+    public VectorValue cameraMin;
+    public VectorValue cameraMax;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +65,12 @@ public class ShopScript : MonoBehaviour
         //buyButton.gameObject.SetActive(false);
     }
 
+    public void ResetCameraBounds()
+    {
+        cameraMax.initialValue = cameraNewMax;
+        cameraMin.initialValue = cameraNewMin;
+    }
+
 
     public void exitShop()
     {
@@ -65,8 +78,9 @@ public class ShopScript : MonoBehaviour
 
         playerStorage.initialValue = playerPosition;
         SceneManager.LoadScene("SampleScene");
+        ResetCameraBounds();
 
-        
+
     }
 
 
