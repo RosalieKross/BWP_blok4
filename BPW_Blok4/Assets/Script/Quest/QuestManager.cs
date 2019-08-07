@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    
+
     public QuestObject[] quests;
     public bool[] completedQuests;
     public string[] questText;
@@ -19,13 +19,13 @@ public class QuestManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        completedQuests = new bool[quests.Length]; 
+        completedQuests = new bool[quests.Length];
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ShowQuestText()

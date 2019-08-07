@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b60bba773e88e4ffd82630332312353e, type: 3}
   m_Name: PlayerInventory
   m_EditorClassIdentifier: 
-  currentItem: {fileID: 11400000, guid: d18e143f1a9c44fa4972f0f8067a00fd, type: 2}
+  currentItem: {fileID: 0}
   items:
   - {fileID: 11400000, guid: d18e143f1a9c44fa4972f0f8067a00fd, type: 2}
   - {fileID: 11400000, guid: b7fc09f6ab5984769a47f6ea7a559d3f, type: 2}
-  numberOfKeys: 1
+  numberOfKeys: 0
   numberOfMasterKey: 0
   numberOfApples: 0
-  coins: 19
+  coins: 0

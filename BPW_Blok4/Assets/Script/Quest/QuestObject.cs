@@ -6,7 +6,8 @@ public enum QuestType
 {
     FetchQuest,
     KillQuest,
-    TalkQuest
+    TalkQuest,
+    CoinQuest
 
 }
 
@@ -20,7 +21,7 @@ public class QuestObject : Powerup
 
     public string[] StartText;
     public string[] EndText;
-    
+
     //public bool playerInRange;
 
     public Inventory playerInventory;
@@ -34,14 +35,29 @@ public class QuestObject : Powerup
     void Update()
     {
 
-    
+
         if (Input.GetKeyDown(KeyCode.Space) && QG.playerInRange) //fetch quest.. Bring apple to villager
         {
             if (thisQuestType == QuestType.FetchQuest)
             {
-                if (playerInventory.numberOfApples ==3)
+                if (playerInventory.numberOfApples >= 3)
                 {
-                    playerInventory.numberOfApples -=3;
+                    Debug.Log("Items gegeven");
+                    playerInventory.numberOfApples -= 3;
+                    EndQuest();
+                }
+
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && QG.playerInRange) //fetch quest.. Bring apple to villager
+        {
+            if (thisQuestType == QuestType.CoinQuest)
+            {
+                if (playerInventory.coins >= 3)
+                {
+                    Debug.Log("Items gegeven");
+                    playerInventory.coins -= 3;
                     EndQuest();
                 }
 
@@ -65,8 +81,6 @@ public class QuestObject : Powerup
         questMan.ShowQuestText();
         questMan.completedQuests[questNumber] = true;
         gameObject.SetActive(false);
-        
+
     }
 }
-
-

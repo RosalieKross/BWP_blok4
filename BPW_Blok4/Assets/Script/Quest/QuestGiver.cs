@@ -13,11 +13,12 @@ public class QuestGiver : MonoBehaviour
     public bool playerInRange;
     public DialogManager DM;
     public Vector3 playerChange;
+    
 
 
     public Signal quest;
 
-    
+
 
 
 
@@ -25,20 +26,22 @@ public class QuestGiver : MonoBehaviour
     void Start()
     {
         QM = FindObjectOfType<QuestManager>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
 
-            StartTheQuest();
+        StartTheQuest();
 
-                if (endQuest && QM.quests[questNumber].gameObject.activeSelf)
-                    {
-                        QM.quests[questNumber].EndQuest();
-                        Debug.Log("Quest Ended");
-                    }
-      
+        if (endQuest && QM.quests[questNumber].gameObject.activeSelf)
+        {
+            QM.quests[questNumber].EndQuest();
+            
+            Debug.Log("Quest Ended");
+        }
+
     }
 
 
@@ -67,7 +70,7 @@ public class QuestGiver : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             playerInRange = true;
             quest.Raise();

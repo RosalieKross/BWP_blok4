@@ -428,6 +428,7 @@ GameObject:
   - component: {fileID: 6744919230599730162}
   - component: {fileID: 6744919230599730161}
   - component: {fileID: 6744919230599730160}
+  - component: {fileID: 3182384885876263854}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -567,6 +568,8 @@ MonoBehaviour:
   playerInventory: {fileID: 11400000, guid: 9bbca71e9765849ccae8239bb53c4891, type: 2}
   receivedItemSprite: {fileID: 6744919229462491520}
   startingPosition: {fileID: 11400000, guid: a1d1378b6902a40c7b37affcce144403, type: 2}
+  currentHealth: {fileID: 11400000, guid: ba034d2e3b62342928af8c085599f90b, type: 2}
+  playerHealthSignal: {fileID: 11400000, guid: 43bcbe394b8fd4fe2ab25cf42b4277e7, type: 2}
 --- !u!95 &6744919230599730162
 Animator:
   serializedVersion: 3
@@ -629,6 +632,32 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!61 &3182384885876263854
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6744919230599730152}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.625, y: 2.5}
+    newSize: {x: 1.1875, y: 1.5625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.625, y: 2.5}
+  m_EdgeRadius: 0
 --- !u!1 &6744919230880853402
 GameObject:
   m_ObjectHideFlags: 0

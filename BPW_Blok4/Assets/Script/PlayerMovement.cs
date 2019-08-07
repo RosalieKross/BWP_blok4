@@ -7,7 +7,8 @@ public enum PlayerState // als een bool met meer functies
     walk,
     attack,
     interact,
-    idle
+    idle,
+    stagger
 }
 
 
@@ -22,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
     public Inventory playerInventory;
     public SpriteRenderer receivedItemSprite;
     public VectorValue startingPosition;
+    public FloatValue currentHealth;
+    public Signal playerHealthSignal;
 
 
     void Start()
@@ -48,14 +51,15 @@ public class PlayerMovement : MonoBehaviour
         move = Vector3.zero;
         move.x = Input.GetAxisRaw("Horizontal");
         move.y = Input.GetAxisRaw("Vertical");
-        if(Input.GetButtonDown("Space") && currentState != PlayerState.attack)
+        if(Input.GetButtonDown("Space") && currentState != PlayerState.attack && currentState != PlayerState.stagger)
         {
             StartCoroutine(AttackCo());
         }
-        else if (currentState == PlayerState.walk)
+        else if (currentState == PlayerState.walk || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
         }
+
 
     }
 
@@ -118,5 +122,32 @@ public class PlayerMovement : MonoBehaviour
         move.Normalize();
         PlayerRB.MovePosition(
             transform.position + move * speed * Time.deltaTime);
+    }
+
+    public void Knock(float knockTime, float damage)
+    {
+        currentHealth.RunTimeValue -= damage;
+        playerHealthSignal.Raise();
+        if (currentHealth.RunTimeValue > 0)
+        {
+            
+            StartCoroutine(KnockCo(knockTime));
+        }
+        else
+        {
+            this.gameObject.SetActive(false); //bij gameover player niet actief
+        }
+    }
+
+    public IEnumerator KnockCo(float knockTime)
+    {
+        if (PlayerRB != null)
+        {
+            yield return new WaitForSeconds(knockTime);
+            PlayerRB.velocity = Vector2.zero;
+            currentState = PlayerState.idle;
+            PlayerRB.velocity = Vector2.zero;
+
+        }
     }
 }
