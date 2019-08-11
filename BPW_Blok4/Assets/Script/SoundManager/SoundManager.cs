@@ -6,7 +6,7 @@ public class SoundManager : MonoBehaviour
 {
 
     public static AudioClip playerHitSound, playerWalkSound, coinPickup,
-        PlayerDamage, EnemyDamage, DrikPotion, Click, OpenPanel, ItemPickUp, PotBreak, UnlockDoor, OpenChest;
+        PlayerDamage, EnemyDamage, DrikPotion, Click, OpenPanel, ItemPickUp, PotBreak, UnlockDoor, OpenChest, Boss, EnemyDied;
     static AudioSource audicoSrc;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,8 @@ public class SoundManager : MonoBehaviour
         PotBreak = Resources.Load<AudioClip>("PotBreak");
         UnlockDoor = Resources.Load<AudioClip>("UnlockDoor");
         OpenChest = Resources.Load<AudioClip>("OpenChest");
+        Boss = Resources.Load<AudioClip>("Boss");
+        EnemyDied = Resources.Load<AudioClip>("EnemyDied");
 
         audicoSrc = GetComponent<AudioSource>();
     }
@@ -71,6 +73,12 @@ public class SoundManager : MonoBehaviour
                 break;
             case "OpenChest":
                 audicoSrc.PlayOneShot(OpenChest);
+                break;
+            case "Boss":
+                audicoSrc.PlayOneShot(Boss);
+                break;
+            case "EnemyDied":
+                audicoSrc.PlayOneShot(EnemyDied);
                 break;
         }
     }

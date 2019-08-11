@@ -25,7 +25,7 @@ public class LastLetter : Powerup
         {
             playerInventory.numberOfEnemyTooth += 1;
             AddLetterInventory();
-
+            SoundManager.PlayeSound("Boss");
             Destroy(this.gameObject);
         }
     }

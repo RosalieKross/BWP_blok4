@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenPanel : MonoBehaviour
+public class OpenPanel : Interactable
 {
 
     [Header("Open Inventory")]
     public bool isPanelOpen;
     public GameObject CodePanel;
-    public bool playerInRange;
+    //public bool playerInRange;
     // Start is called before the first frame update
 
     void Start()

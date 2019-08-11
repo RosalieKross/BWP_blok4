@@ -63,10 +63,10 @@ public class QuestObject : Powerup
         {
             if (thisQuestType == QuestType.CoinQuest)
             {
-                if (playerInventory.coins >= 3)
+                if (playerInventory.coins >= 10)
                 {
                     Debug.Log("Items gegeven");
-                    playerInventory.coins -= 3;
+                    playerInventory.coins -= 10;
                     playerInventory.numberOfMasterKey += 1;
                     AddMasterKeyToInventory();
                     RemoveCoinFromInventory();

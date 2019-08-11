@@ -80,6 +80,7 @@ public class Door : Interactable
                     DM.dialogBox.SetActive(false);
                     DM.BoxActive = false;
                     playerInventory.numberOfMasterKey--;
+                    RemoveFromInventory();
                         Open();
                     }
                 }

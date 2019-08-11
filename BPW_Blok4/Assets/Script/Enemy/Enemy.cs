@@ -34,6 +34,7 @@ public class Enemy : MonoBehaviour
         {
             MakeLoot();
             //if(roomSignal != null){roomSignal.Raise();}
+            SoundManager.PlayeSound("EnemyDied");
 
             this.gameObject.SetActive(false);
         }

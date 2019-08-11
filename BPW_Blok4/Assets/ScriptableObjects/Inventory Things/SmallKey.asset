@@ -15,7 +15,7 @@ MonoBehaviour:
   itemName: SmallKey
   itemDescription: This is a small key! Is there a door nearby?
   itemImage: {fileID: 21300164, guid: c56fb631dd4854ebea94018515862a01, type: 3}
-  numberHeld: -1
+  numberHeld: 0
   usable: 0
   unique: 1
   thisEvent:
