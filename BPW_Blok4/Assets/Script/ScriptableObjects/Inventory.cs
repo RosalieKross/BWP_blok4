@@ -13,6 +13,7 @@ public class Inventory : ScriptableObject
     public int numberOfMasterKey;
     public int numberOfApples;
     public int coins;
+    public int numberOfEnemyTooth;
     //public int numberOfCoins;
 
     public void AddItem(Item itemToAdd)
@@ -33,6 +34,10 @@ public class Inventory : ScriptableObject
         if (itemToAdd.isApple)
         {
             numberOfApples++;
+        }
+        if (itemToAdd.isEnemyTooth)
+        {
+            numberOfEnemyTooth++;
         }
         else
         {

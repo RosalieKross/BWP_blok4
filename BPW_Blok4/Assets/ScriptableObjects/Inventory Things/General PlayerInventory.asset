@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8baad01aecc4645f28754f74952529c8, type: 3}
+  m_Name: General PlayerInventory
+  m_EditorClassIdentifier: 
+  myInventory:
+  - {fileID: 11400000, guid: 2f80e5c4e6ba44980b50fa3083991116, type: 2}
+  - {fileID: 11400000, guid: 1aff8ead41b7443228e022c07ce0fd3e, type: 2}
+  - {fileID: 11400000, guid: d918e955918cb4b22b58986f7464aef2, type: 2}
+  - {fileID: 11400000, guid: 9eaa8be9f432e4c8092f413a8f607145, type: 2}
+  - {fileID: 11400000, guid: abe9befc333a241e9b0c16ba26d2dac3, type: 2}
+  - {fileID: 11400000, guid: 0c3dcbcd2c89d474883c4b495ba7aa4f, type: 2}
+  - {fileID: 11400000, guid: 8f490975dd28947c6b8888c78169d397, type: 2}
+  - {fileID: 11400000, guid: 0dd2710ce28b44ef8bb76cfd8e4e0642, type: 2}
+  - {fileID: 11400000, guid: 1c7d1befb28834d77ab59db48976d2ae, type: 2}
+  currentItem: {fileID: 0}
+  numberOfKeys: 3
+  numberOfMasterKey: 1
+  numberOfApples: 0
+  coins: 10
+  numberOfEnemyTooth: 0

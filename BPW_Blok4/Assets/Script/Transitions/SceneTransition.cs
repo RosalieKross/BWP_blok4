@@ -27,7 +27,7 @@ public class SceneTransition : MonoBehaviour
     {
         if(other.CompareTag("Player") && !other.isTrigger)
         {
-            playerStorage.initialValue = playerPosition;
+            
             SceneManager.LoadScene(sceneToLoad);
             ResetCameraBounds();
         }
@@ -37,6 +37,7 @@ public class SceneTransition : MonoBehaviour
 
     public void ResetCameraBounds()
     {
+        playerStorage.initialValue = playerPosition;
         cameraMax.initialValue = cameraNewMax;
         cameraMin.initialValue = cameraNewMin;
     }

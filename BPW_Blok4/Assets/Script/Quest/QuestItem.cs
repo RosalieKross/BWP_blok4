@@ -28,7 +28,7 @@ public class QuestItem : MonoBehaviour
         {
             if(!QM.completedQuests[questNumber] && QM.quests[questNumber].gameObject.activeSelf)
             {
-                QM.isItemCollected = itemName;
+                //QM.isItemCollected = itemName;
                 gameObject.SetActive(false);
 
             }

@@ -10,7 +10,7 @@ public class QuestManager : MonoBehaviour
     public bool[] completedQuests;
     public string[] questText;
 
-    public string isItemCollected;
+    
 
 
     public DialogManager DM; //dialog bubble voor quest tekst

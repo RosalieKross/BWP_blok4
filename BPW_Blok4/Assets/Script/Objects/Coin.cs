@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Coin : Powerup
 {
-    public Inventory playerInventory;
+    public PlayerInventory playerInventory;
+    [SerializeField] private InventoryItem thisItem;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,30 @@ public class Coin : Powerup
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
+
+            AddItemToInventory();
             playerInventory.coins += 1; 
             powerupSignal.Raise();
+            SoundManager.PlayeSound("coinPickup");
             Destroy(this.gameObject);
+        }
+    }
+
+    void AddItemToInventory()
+    {
+
+
+        if (playerInventory && thisItem)
+        {
+            if (playerInventory.myInventory.Contains(thisItem))
+            {
+                thisItem.numberHeld += 1;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisItem);
+                thisItem.numberHeld += 1;
+            }
         }
     }
 

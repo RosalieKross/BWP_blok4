@@ -74,10 +74,14 @@ MonoBehaviour:
   contextSignal: {fileID: 11400000, guid: d651e086a2e244a66982d5679e92d132, type: 2}
   thisDoorType: 0
   open: 0
-  playerInventory: {fileID: 11400000, guid: 9bbca71e9765849ccae8239bb53c4891, type: 2}
+  playerInventory: {fileID: 11400000, guid: 0a7cdcdc3c27d4856ba8b493c7191928, type: 2}
   doorSprite: {fileID: 8119784336461011213}
   physicsCollider: {fileID: 8119784336461011214}
   physicsCollider2: {fileID: 8119784336366259798}
+  thisItem: {fileID: 11400000, guid: abe9befc333a241e9b0c16ba26d2dac3, type: 2}
+  DM: {fileID: 0}
+  dialogueLines:
+  - This door is closed, do you have a small key?
 --- !u!1 &8119784336461011200
 GameObject:
   m_ObjectHideFlags: 0

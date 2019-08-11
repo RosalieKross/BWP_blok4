@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2639dd55b0384a4085fafb038a353aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupSignal: {fileID: 0}
+  thisLoot: {fileID: 11400000, guid: d73db58d38ef74ad8b3b81d3ee6e2d29, type: 2}
 --- !u!61 &518888944004228054
 BoxCollider2D:
   m_ObjectHideFlags: 0

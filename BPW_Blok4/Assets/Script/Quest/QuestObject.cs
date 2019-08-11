@@ -24,8 +24,14 @@ public class QuestObject : Powerup
 
     //public bool playerInRange;
 
-    public Inventory playerInventory;
+    public PlayerInventory playerInventory;
+    public InventoryItem thisItem;
+    public InventoryItem AddMasterKey;
+    public InventoryItem removeTooht;
+    public InventoryItem AddCoin;
+    public InventoryItem removeApple;
     // Start is called before the first frame update
+
     void Start()
     {
         powerupSignal.Raise();
@@ -44,6 +50,9 @@ public class QuestObject : Powerup
                 {
                     Debug.Log("Items gegeven");
                     playerInventory.numberOfApples -= 3;
+                    RemoveAppleFromInventory();
+                    playerInventory.coins += 3;
+                    AddCoinToInventory();
                     EndQuest();
                 }
 
@@ -58,6 +67,26 @@ public class QuestObject : Powerup
                 {
                     Debug.Log("Items gegeven");
                     playerInventory.coins -= 3;
+                    playerInventory.numberOfMasterKey += 1;
+                    AddMasterKeyToInventory();
+                    RemoveCoinFromInventory();
+                    EndQuest();
+                }
+
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) && QG.playerInRange) //fetch quest.. Bring apple to villager
+        {
+            if (thisQuestType == QuestType.KillQuest)
+            {
+                if (playerInventory.numberOfEnemyTooth >= 3)
+                {
+                    Debug.Log("Items gegeven");
+                    playerInventory.numberOfEnemyTooth -= 3;
+                    RemoveToothFromInventory();
+                    playerInventory.coins += 3;
+                    AddCoinToInventory();
                     EndQuest();
                 }
 
@@ -65,6 +94,92 @@ public class QuestObject : Powerup
         }
     }
 
+
+    void RemoveAppleFromInventory()
+    {
+
+        if (playerInventory && removeApple)
+        {
+            if (playerInventory.myInventory.Contains(removeApple))
+            {
+                removeApple.numberHeld -= 3;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(removeApple);
+                removeApple.numberHeld -= 3;
+            }
+        }
+    }
+
+
+    void RemoveToothFromInventory()
+    {
+
+        if (playerInventory && removeTooht)
+        {
+            if (playerInventory.myInventory.Contains(removeTooht))
+            {
+                removeTooht.numberHeld -= 3;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(removeTooht);
+                removeTooht.numberHeld -= 3;
+            }
+        }
+    }
+
+    void AddMasterKeyToInventory()
+    {
+        if (playerInventory && AddMasterKey)
+        {
+            if (playerInventory.myInventory.Contains(AddMasterKey))
+            {
+                AddMasterKey.numberHeld += 1;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(AddMasterKey);
+                AddMasterKey.numberHeld += 1;
+            }
+        }
+    }
+
+
+    void RemoveCoinFromInventory()
+    {
+
+        if (playerInventory && thisItem)
+        {
+            if (playerInventory.myInventory.Contains(thisItem))
+            {
+                thisItem.numberHeld -= 3;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisItem);
+                thisItem.numberHeld -= 3;
+            }
+        }
+    }
+
+    void AddCoinToInventory()
+    {
+
+        if (playerInventory && AddCoin)
+        {
+            if (playerInventory.myInventory.Contains(AddCoin))
+            {
+                AddCoin.numberHeld += 3;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(AddCoin);
+                AddCoin.numberHeld += 3;
+            }
+        }
+    }
 
     public void StartQuest()
     {
@@ -75,7 +190,7 @@ public class QuestObject : Powerup
 
     public void EndQuest()
     {
-        playerInventory.coins += 1;
+        
         powerupSignal.Raise();
         questMan.questText = EndText;
         questMan.ShowQuestText();

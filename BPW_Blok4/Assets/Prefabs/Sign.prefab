@@ -150,6 +150,5 @@ MonoBehaviour:
   contextSignal: {fileID: 11400000, guid: d651e086a2e244a66982d5679e92d132, type: 2}
   DM: {fileID: 0}
   dialogueLines:
-  - There's no place like home!
-  - Welconme to the Jimmy's Market Shop!
-  - Talk to Jimmy to see what he has to offer....
+  - 'Here lies our dearly beloved '
+  - 9898

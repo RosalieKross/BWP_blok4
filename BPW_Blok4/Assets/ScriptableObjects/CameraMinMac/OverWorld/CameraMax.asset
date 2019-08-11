@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52f1f5ae59c1e4213911ce15f4cc1d40, type: 3}
   m_Name: CameraMax
   m_EditorClassIdentifier: 
-  initialValue: {x: 18.62, y: -1.49}
+  initialValue: {x: 5.38, y: 2.96}
   defaultValue: {x: 5.38, y: 2.96}

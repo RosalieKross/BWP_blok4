@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f63e78042319453da248b5db807e67f, type: 3}
+  m_Name: EnemyTooth
+  m_EditorClassIdentifier: 
+  itemSprite: {fileID: 21300334, guid: 1a4aa0cdc861848a5a8024e6b6f27658, type: 3}
+  itemDescription: You've found an Enemy Tooth
+  isKey: 0
+  isCoin: 0
+  isMasterKey: 0
+  isApple: 0
+  isEnemyTooth: 1

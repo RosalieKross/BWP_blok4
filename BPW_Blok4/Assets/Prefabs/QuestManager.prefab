@@ -56,7 +56,12 @@ MonoBehaviour:
   - You've found an apple!
   - The villager will be very pleased with you!
   - Here is 1 coin for your effort
-  playerInventory: {fileID: 11400000, guid: 9bbca71e9765849ccae8239bb53c4891, type: 2}
+  playerInventory: {fileID: 0}
+  thisItem: {fileID: 0}
+  AddMasterKey: {fileID: 0}
+  removeTooht: {fileID: 0}
+  AddCoin: {fileID: 0}
+  removeApple: {fileID: 0}
 --- !u!1 &424404920061535870
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +117,11 @@ MonoBehaviour:
   - YJA
   - facs
   playerInventory: {fileID: 0}
+  thisItem: {fileID: 0}
+  AddMasterKey: {fileID: 0}
+  removeTooht: {fileID: 0}
+  AddCoin: {fileID: 0}
+  removeApple: {fileID: 0}
 --- !u!1 &424404920866970556
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &424404920866970559
 Transform:
   m_ObjectHideFlags: 0
@@ -167,7 +177,12 @@ MonoBehaviour:
   - YEAH
   - Bring the apple To me
   - YEAH
-  playerInventory: {fileID: 11400000, guid: 9bbca71e9765849ccae8239bb53c4891, type: 2}
+  playerInventory: {fileID: 0}
+  thisItem: {fileID: 0}
+  AddMasterKey: {fileID: 0}
+  removeTooht: {fileID: 0}
+  AddCoin: {fileID: 0}
+  removeApple: {fileID: 0}
 --- !u!1 &424404920914704002
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,6 +215,7 @@ Transform:
   - {fileID: 424404919828619533}
   - {fileID: 424404921127752713}
   - {fileID: 424404920866970559}
+  - {fileID: 7154328727853274463}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -222,10 +238,8 @@ MonoBehaviour:
   - {fileID: 424404920866970558}
   completedQuests: 
   questText:
-  - Please bring me an Apple... I'm starving!
-  - I'll pay you.... don't worry!
-  - In the forest... Quick!
-  isItemCollected: 
+  - 'Please bring me an apple, I''m starving. '
+  - You can find one in the forest!
   DM: {fileID: 0}
 --- !u!1 &424404921127752719
 GameObject:
@@ -281,4 +295,72 @@ MonoBehaviour:
   EndText:
   - Hee! Thanks for coming I just want say
   - heheeheheh
-  playerInventory: {fileID: 11400000, guid: 9bbca71e9765849ccae8239bb53c4891, type: 2}
+  playerInventory: {fileID: 0}
+  thisItem: {fileID: 0}
+  AddMasterKey: {fileID: 0}
+  removeTooht: {fileID: 0}
+  AddCoin: {fileID: 0}
+  removeApple: {fileID: 0}
+--- !u!1 &6594595808870440791
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7154328727853274463}
+  - component: {fileID: 6972707240049105186}
+  m_Layer: 0
+  m_Name: Quest 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &7154328727853274463
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594595808870440791}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 424404920914704028}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6972707240049105186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594595808870440791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cb1cb60e8c2b4f2ebb20bd47522f05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerupSignal: {fileID: 11400000, guid: 66a7c6f9af35848b791da9281e18476e, type: 2}
+  questNumber: 4
+  questMan: {fileID: 0}
+  QG: {fileID: 0}
+  thisQuestType: 1
+  StartText:
+  - Hey wait... Could you help me?!
+  - Those Blubs are ruining my crops!
+  - Please kill them for me!
+  - If you bring back their 5 enemy teeth I will reward you!
+  EndText:
+  - Thank you soo much!
+  - You've saved my harvest for this year!
+  - Here are 3 coins!
+  playerInventory: {fileID: 0}
+  thisItem: {fileID: 0}
+  AddMasterKey: {fileID: 0}
+  removeTooht: {fileID: 0}
+  AddCoin: {fileID: 0}
+  removeApple: {fileID: 0}

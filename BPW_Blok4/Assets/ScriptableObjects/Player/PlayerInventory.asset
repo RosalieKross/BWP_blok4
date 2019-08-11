@@ -17,6 +17,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d18e143f1a9c44fa4972f0f8067a00fd, type: 2}
   - {fileID: 11400000, guid: b7fc09f6ab5984769a47f6ea7a559d3f, type: 2}
   numberOfKeys: 0
-  numberOfMasterKey: 0
-  numberOfApples: 0
-  coins: 0
+  numberOfMasterKey: 1
+  numberOfApples: 8
+  coins: 39
+  numberOfEnemyTooth: 0

@@ -12,5 +12,6 @@ public class Item : ScriptableObject
     public bool isCoin;
     public bool isMasterKey;
     public bool isApple;
+    public bool isEnemyTooth;
 
 }

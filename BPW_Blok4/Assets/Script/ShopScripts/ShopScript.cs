@@ -3,19 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ShopScript : MonoBehaviour
 {
     int moneyAmount;
     int isKeySold;
+    int isPotionSold;
 
-    public Inventory playerInventory;
-    public Item itemBuy;
+    public PlayerInventory playerInventory;
+    public InventoryItem thisItem;
+    public InventoryItem thisPotion;
+    public InventoryItem thisCoin;
+
 
     public Text moneyAmountText;
     public Text keyPrice;
 
     public Button buyButton;
+    public Button buyButton2;
 
 
     public string sceneToLoad;
@@ -43,26 +49,101 @@ public class ShopScript : MonoBehaviour
 
         //isKeySold = PlayerPrefs.GetInt("isKeySlod");
 
-        if(playerInventory.coins >= 5 && isKeySold == 0)
+        if(playerInventory.coins >= 5 && isPotionSold == 0)
+        {
+            buyButton2.interactable = true;
+            
+        }
+        if (playerInventory.coins >= 5 && isKeySold == 0)
         {
             buyButton.interactable = true;
+            
         }
         else
         {
+            buyButton2.interactable = false;
             buyButton.interactable = false;
         }
     }
 
     public void buyKey()
     {
+        SoundManager.PlayeSound("Click");
         playerInventory.coins -= 5;
-
-        playerInventory.AddItem(itemBuy);
-        playerInventory.currentItem = itemBuy;
-
+        RemoveFromInventory();
+        playerInventory.AddItem(thisItem);
+        
+        //playerInventory.currentItem = thisItem;
+        AddItemToInventory();
         //PlayerPrefs.SetInt("isKeySold", 1);
         //keyPrice.text = "sold!";
         //buyButton.gameObject.SetActive(false);
+    }
+
+    public void buyPotion()
+    {
+        SoundManager.PlayeSound("Click");
+        playerInventory.coins -= 5;
+        RemoveFromInventory();
+        playerInventory.AddItem(thisPotion);
+        
+        //playerInventory.currentItem = thisItem;
+        AddPotionToInventory();
+        //PlayerPrefs.SetInt("isKeySold", 1);
+        //keyPrice.text = "sold!";
+        //buyButton.gameObject.SetActive(false);
+    }
+
+    void RemoveFromInventory()
+    {
+
+        if (playerInventory && thisCoin)
+        {
+            if (playerInventory.myInventory.Contains(thisCoin))
+            {
+                thisCoin.numberHeld -= 5;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisCoin);
+                thisCoin.numberHeld -= 5;
+            }
+        }
+    }
+
+
+    void AddItemToInventory()
+    {
+
+        if (playerInventory && thisItem)
+        {
+            if (playerInventory.myInventory.Contains(thisItem))
+            {
+                thisItem.numberHeld += 1;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisItem);
+                thisItem.numberHeld += 1;
+            }
+        }
+    }
+
+    void AddPotionToInventory()
+    {
+
+        if (playerInventory && thisPotion)
+        {
+            if (playerInventory.myInventory.Contains(thisPotion))
+            {
+                thisPotion.numberHeld += 1;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisPotion);
+                thisPotion.numberHeld += 1;
+            }
+        }
     }
 
     public void ResetCameraBounds()

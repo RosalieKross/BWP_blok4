@@ -16,14 +16,29 @@ public class Door : Interactable
     [Header("Door variables")]
     public DoorType thisDoorType;
     public bool open = false;
-    public Inventory playerInventory;
+    public BoolValue isOpened;
+    public PlayerInventory playerInventory;
     public SpriteRenderer doorSprite;
     public BoxCollider2D physicsCollider;
     public BoxCollider2D physicsCollider2;
 
+    [SerializeField] private InventoryItem thisItem;
+
     public DialogManager DM;
     public string[] dialogueLines;
 
+
+     void Start()
+    {
+
+        open = isOpened.RunTimeValue;
+        if (open)
+        {
+            doorSprite.enabled = false;
+            physicsCollider.enabled = false;
+            physicsCollider2.enabled = false;
+        }
+    }
 
 
     private void Update()
@@ -51,6 +66,7 @@ public class Door : Interactable
                     DM.dialogBox.SetActive(false);
                     DM.BoxActive = false;
                     playerInventory.numberOfKeys--;
+                    RemoveFromInventory();
                     Open();
                 }
             }
@@ -69,13 +85,30 @@ public class Door : Interactable
                 }
             }
         }
-    
 
+    void RemoveFromInventory()
+    {
+
+        if (playerInventory && thisItem)
+        {
+            if (playerInventory.myInventory.Contains(thisItem))
+            {
+                thisItem.numberHeld -= 1;
+            }
+            else
+            {
+                playerInventory.myInventory.Add(thisItem);
+                thisItem.numberHeld -= 1;
+            }
+        }
+    }
 
     public void Open()
     {
+        SoundManager.PlayeSound("UnlockDoor");
         doorSprite.enabled = false;
         open = true;
+        isOpened.RunTimeValue = open;
         physicsCollider.enabled = false;
         physicsCollider2.enabled = false;
     }
